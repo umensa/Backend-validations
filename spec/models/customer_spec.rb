@@ -6,8 +6,7 @@ RSpec.describe Customer, type: :model do
       first_name: "Jack",
       last_name: "Smith",
       phone: "8889995678",
-      email: "jsmith@sample.com",
-      id: 1
+      email: "jsmith@sample.com"
     )
   }
 
