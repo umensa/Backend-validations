@@ -45,7 +45,7 @@ class CustomersController < ApplicationController
     else
       flash.now.alert = @customer.errors.full_messages.to_sentence
       render :new 
-    end    
+    end
   end
 
   # PATCH/PUT /customers/1

@@ -28,9 +28,9 @@ RSpec.describe "CustomersControllers", type: :request do
       get "/customers/new"
       expect(response).to render_template(:new)
 
-      customer = FactoryBot.create(:customer)
-      get new_customer_path(id: customer.id)
-      expect(response).to render_template(:new)
+      # customer = FactoryBot.create(:customer)
+      # get new_customer_path(id: customer.id)
+      # expect(response).to render_template(:new)
     end
   end
 
@@ -88,7 +88,10 @@ RSpec.describe "CustomersControllers", type: :request do
   describe "delete a customer record" do
     it "delete a customer record" do
       customer = FactoryBot.create(:customer)
-      expect(delete customer_path(id: customer.id)).to redirect_to(customers_url)
+      expect do 
+        delete customer_path(customer.id)
+      end.to change{Customer.count} # do .. end alternative to the {}
+      expect(response).to redirect_to customers_path
       end
   end
 
